@@ -11,8 +11,11 @@
 #pragma once
 
 #include "ofMain.h"
+#include "ofxPd.h"
 
-#include "AppCore.h"
+using namespace pd;
+
+//#include "AppCore.h"
 
 /// a desktop os app wrapper
 class testApp : public ofBaseApp{
@@ -30,9 +33,16 @@ class testApp : public ofBaseApp{
 		void mousePressed(int x, int y, int button);
 		void mouseReleased(int x, int y, int button);
 		void windowResized(int w, int h);
-		
+
 		void audioReceived(float * input, int bufferSize, int nChannels);
 		void audioRequested(float * output, int bufferSize, int nChannels);
-		
-		AppCore core;
+
+    ofxPd pd;
+    Patch patch;
+    vector<float> scopeArray;
+    vector<Patch> instances;
+    ofFbo fbo;
+    int patchIdx;
+    void draw1();
+		//AppCore core;
 };

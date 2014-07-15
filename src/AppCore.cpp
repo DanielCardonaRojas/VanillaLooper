@@ -251,6 +251,7 @@ void AppCore::draw() {
 	ofSetRectMode(OF_RECTMODE_CENTER);
 	float x = 0, y = ofGetHeight()/2;
 	float w = ofGetWidth() / (float) scopeArray.size(), h = ofGetHeight()/2;
+
 	for(int i = 0; i < scopeArray.size()-1; ++i) {
 		ofLine(x, y+scopeArray[i]*h, x+w, y+scopeArray[i+1]*h);
 		x += w;

@@ -30,23 +30,23 @@ class AppCore : public PdReceiver, public PdMidiReceiver {
 
 		// do something
 		void playTone(int pitch);
-		
+
 		// input callbacks
 		void keyPressed(int key);
-		
+
 		// audio callbacks
 		void audioReceived(float * input, int bufferSize, int nChannels);
 		void audioRequested(float * output, int bufferSize, int nChannels);
-		
+
 		// pd message receiver callbacks
 		void print(const std::string& message);
-		
+
 		void receiveBang(const std::string& dest);
 		void receiveFloat(const std::string& dest, float value);
 		void receiveSymbol(const std::string& dest, const std::string& symbol);
 		void receiveList(const std::string& dest, const List& list);
 		void receiveMessage(const std::string& dest, const std::string& msg, const List& list);
-		
+
 		// pd midi receiver callbacks
 		void receiveNoteOn(const int channel, const int pitch, const int velocity);
 		void receiveControlChange(const int channel, const int controller, const int value);
@@ -54,15 +54,15 @@ class AppCore : public PdReceiver, public PdMidiReceiver {
 		void receivePitchBend(const int channel, const int value);
 		void receiveAftertouch(const int channel, const int value);
 		void receivePolyAftertouch(const int channel, const int pitch, const int value);
-		
+
 		void receiveMidiByte(const int port, const int byte);
-		
+
 		// demonstrates how to manually poll for messages
 		void processEvents();
-		
+
 		ofxPd pd;
 		vector<float> scopeArray;
 		vector<Patch> instances;
-		
+
 		int midiChan;
 };
